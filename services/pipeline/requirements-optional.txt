@@ -1,0 +1,37 @@
+# Optional integrations. Every one of these degrades gracefully when absent —
+# `python -m fraudguard doctor` reports exactly which features are unavailable.
+
+# --- Content guardrails (llm/guard.py) ------------------------------------
+# After installing, run:
+#   guardrails configure
+#   guardrails hub install hub://guardrails/toxic_language
+#   guardrails hub install hub://guardrails/profanity_free
+guardrails-ai>=0.7
+
+# --- Adverse-media extraction (enrichment/articles.py) --------------------
+news-please>=1.6
+newspaper4k>=0.9
+beautifulsoup4>=4.12
+lxml[html_clean]>=5.0
+
+# --- Threat intelligence (enrichment/reputation.py) -----------------------
+OTXv2>=1.5
+
+# --- Agentic validation (flows/mcp_agent.py) ------------------------------
+crewai>=1.6
+crewai[google-genai]
+
+# --- KYC document intake (flows/kyc_ocr.py) -------------------------------
+boto3>=1.34
+google-cloud-documentai>=3.0
+pdf2image>=1.17          # also needs the system package `poppler-utils`
+opencv-python>=4.10
+
+# --- Face matching (vision/) ----------------------------------------------
+deepface>=0.0.93
+faiss-cpu>=1.9
+tf-keras>=2.18
+Google-Images-Search>=1.4
+
+# --- RAG re-assessment (flows/rag_server.py) ------------------------------
+sentence-transformers>=3.0

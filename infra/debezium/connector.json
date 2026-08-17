@@ -1,0 +1,36 @@
+{
+  "name": "fraudguard-postgres",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "${POSTGRES_USER}",
+    "database.password": "${POSTGRES_PASSWORD}",
+    "database.dbname": "${POSTGRES_DB}",
+
+    "topic.prefix": "postgres",
+
+    "//": "Postgres folds unquoted identifiers to lower case. The original config listed 'public.ToxicityHistory,public.Transactions', which matched nothing, so change capture never started.",
+    "table.include.list": "public.transactions,public.toxicityhistory",
+
+    "slot.name": "fraudguard_slot",
+    "publication.name": "fraudguard_publication",
+    "publication.autocreate.mode": "filtered",
+
+    "snapshot.mode": "initial",
+    "tombstones.on.delete": "false",
+    "decimal.handling.mode": "double",
+    "time.precision.mode": "connect",
+
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false",
+
+    "heartbeat.interval.ms": "10000",
+    "max.batch.size": "2048",
+    "max.queue.size": "8192"
+  }
+}

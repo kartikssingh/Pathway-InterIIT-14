@@ -1,0 +1,15 @@
+{
+  "features": {
+    "total_amount_1h": 1200,
+    "txn_count_1h": 3,
+    "unique_cp_1h": 2,
+    "total_amount_24h": 9000,
+    "txn_count_24h": 8,
+    "unique_cp_24h": 4,
+    "total_amount_7d": 35000,
+    "txn_count_7d": 18,
+    "unique_cp_7d": 6,
+    "incoming_outgoing_ratio_7d": 1.2
+  }
+}
+

@@ -1,0 +1,22 @@
+{
+  "entity_id": "204871336112",
+  "profile_pic": "https://example-bucket.s3.eu-north-1.amazonaws.com/profilepics/jane_doe_p1_1.jpg",
+  "face_match_urls": [],
+  "applicant_name": "jane doe",
+  "date_of_birth": "1988-04-17",
+  "gender": "female",
+  "marital_status": "married",
+  "nationality": "indian",
+  "annual_income": "1800000",
+  "applicant_email": "jane.doe@example.com",
+  "applicant_mobile_number": "9876543210",
+  "occupation": "director, private limited company",
+  "sources_of_income": ["salary", "dividends"],
+  "current_address": "14 marine drive, mumbai, maharashtra 400020",
+  "permanent_address": "14 marine drive, mumbai, maharashtra 400020",
+  "residential_status": "resident",
+  "passport_number": "z1234567",
+  "unique_identification_number": "123412341234",
+  "father_name": "john doe",
+  "mother_name": "mary doe"
+}

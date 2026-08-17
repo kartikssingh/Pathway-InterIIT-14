@@ -1,0 +1,30 @@
+# FraudGuard Compliance API — direct dependencies.
+
+# --- Web framework --------------------------------------------------------
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9       # multipart/form-data for the KYC upload endpoint
+
+# --- Validation -----------------------------------------------------------
+pydantic>=2.9
+email-validator>=2.1
+
+# --- Database -------------------------------------------------------------
+SQLAlchemy>=2.0
+psycopg2-binary>=2.9
+
+# --- Security -------------------------------------------------------------
+python-jose[cryptography]>=3.3
+bcrypt>=4.1
+
+# --- Configuration --------------------------------------------------------
+python-dotenv>=1.0
+
+# --- Optional integrations ------------------------------------------------
+# S3 form uploads (endpoint returns 502 with a clear message when absent)
+boto3>=1.34
+# Dashboard aggregate cache (disabled unless REDIS_ENABLED=true)
+redis>=5.0
+
+# --- Development / testing ------------------------------------------------
+# pip install -r requirements-dev.txt

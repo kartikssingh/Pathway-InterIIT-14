@@ -1,0 +1,14 @@
+{
+    "high_velocity_1h": 0.9545071807582614,
+    "large_txn_1h": 14.767081882076862,
+    "high_unique_cp_1h": 0.766965757565462,
+    "structuring_small_then_large_24h": 1.0,
+    "high_volume_24h": 0.8538370440381197,
+    "rapid_counterparty_increase_24h": 0.7305132476800237,
+    "high_velocity_7d": 0.7547613610435114,
+    "high_volume_7d": 0.9004682871469336,
+    "cp_spike_7d": 0.5841563214973856,
+    "incoming_outgoing_anomaly": 1.0,
+    "rapid_growth_between_windows": 1.0016479474090576,
+    "unusual_average_amount": 102.93367151607964
+}

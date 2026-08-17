@@ -1,0 +1,100 @@
+# =============================================================================
+# What is deliberately NOT ignored
+#
+# The previous .gitignore excluded `rps/src/models`, `rps/src/data/processed`,
+# `PState/`, `MCPPState/` and every `*.log` — that is, the trained models, the
+# data they were derived from, all streaming state and the entire audit trail.
+# A fraud decision could not be reproduced or explained after the fact, which
+# the roadmap (docs/ROADMAP.md, P0.2 and P0.3) calls out as a compliance defect.
+#
+# The model artefacts under services/pipeline/ml/ are tracked. Regenerable
+# *outputs* are not.
+# =============================================================================
+
+# --- Secrets -----------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*-service-account*.json
+*gen-lang-client-*.json
+.vault-token
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.venv/
+venv/
+ENV/
+
+# --- Test & tooling caches ---------------------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+.hypothesis/
+
+# --- Node / Next.js ----------------------------------------------------------
+node_modules/
+.next/
+out/build/
+.turbo/
+*.tsbuildinfo
+.pnpm-store/
+.vercel/
+
+# --- Pipeline runtime outputs (regenerable) ---------------------------------
+services/pipeline/out/*
+!services/pipeline/out/.gitkeep
+services/pipeline/logs/
+services/pipeline/state/
+services/pipeline/faces/
+services/pipeline/input/
+services/pipeline/output/
+*.faiss
+
+# Pathway persistence and caches
+RAGCache/
+**/RPSState/
+**/MCPState/
+**/PState/
+persistence_test/
+
+# ML training telemetry (the models themselves ARE tracked)
+**/catboost_info/
+
+# --- Logs --------------------------------------------------------------------
+# Application logs are shipped, not committed; the audit trail lives in Postgres
+# and services/pipeline/out/, not in these files.
+*.log
+logs/
+nohup.out
+
+# --- Personal data -----------------------------------------------------------
+# KYC forms and face crops contain personal information and must never be
+# committed, whatever the extension.
+services/pipeline/out/kyc_pdfs/
+services/pipeline/out/kyc_cache/
+services/pipeline/out/faces/
+*.pdf
+!assets/*.pdf
+!docs/**/*.pdf
+
+# --- OS / editor -------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.swp

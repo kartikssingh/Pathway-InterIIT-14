@@ -1,0 +1,36 @@
+# FraudGuard pipeline — direct dependencies only.
+#
+# The previous requirements.txt was a `pip freeze` of a developer machine: 400
+# transitive pins including CUDA wheels, Jupyter and three OCR engines. That file
+# is kept as requirements-lock.txt for byte-exact reproduction of the original
+# environment; this one lists what the code actually imports.
+#
+# Install:  pip install -r requirements.txt
+# Extras:   pip install -r requirements-optional.txt   (vision, guardrails, agents)
+
+# --- Core streaming engine -------------------------------------------------
+pathway[xpack-llm]>=0.27,<0.28
+
+# --- Configuration & runtime ----------------------------------------------
+python-dotenv>=1.0
+requests>=2.32
+urllib3>=2.0
+
+# --- Data -----------------------------------------------------------------
+pandas>=2.2
+numpy>=1.26,<3
+pyarrow>=18.0
+psycopg2-binary>=2.9
+
+# --- ML inference (models are pre-trained; see ml/) ------------------------
+scikit-learn>=1.5
+joblib>=1.4
+catboost>=1.2
+
+# --- Scoring service ------------------------------------------------------
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.9
+
+# --- LLM ------------------------------------------------------------------
+litellm>=1.70

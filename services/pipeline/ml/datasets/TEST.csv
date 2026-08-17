@@ -1,0 +1,2 @@
+transaction_id,user_id,timestamp,amount,currency,txn_type,counterparty_id,is_fraud
+2973,9564,1970-01-01 00:00:00.000000000,529.32,USD,TRANSFER,9881,0
